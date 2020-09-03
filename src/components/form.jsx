@@ -20,6 +20,9 @@ class Form extends Component {
         event.preventDefault()
         const data = {...this.state}
         this.props.calculateIsa(data)
+        setTimeout(() => {
+            this.props.calculateData(data)
+        }, 1000);
     }
 
     render() {
