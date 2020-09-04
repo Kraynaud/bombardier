@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Form from './form';
-import { isaM20, isaM10 } from '../../data/isa';
+import { isaM20, isaM10, isa10, isa } from '../../data/isa';
 import mcp from '../../data/mcp';
 
 class App extends Component {
@@ -15,6 +15,8 @@ class App extends Component {
             tempMcp : '',
             isaM20,
             isaM10,
+            isa10,
+            isa,
             mcp
         };
     }
@@ -25,27 +27,30 @@ class App extends Component {
     } 
     
     calculateData = (data) => {
-
         const isaM20 = {...this.state.isaM20};
         const isaM10 = {...this.state.isaM10};
-
         let array;
         if (this.state.deviationIsa === -20) {
             array = isaM20;
-        } else {
+        } else if (this.state.deviationIsa === -10) {
             array = isaM10;
+        } else if (this.state.deviationIsa === 0) {
+            array = isa;
+        } else {
+            array = isa10;
         }
-
-        const filter = Object.values(array)
-        console.log(filter)
-
-        let result = [];
-        filter.map((item) => {
+        const filter = Object.values(array);
+        const result = [];
+        filter.forEach((item) => {
             if ( item['poids'] == parseInt(data['poidsAct']) && item['alt'] == parseInt(data['altitudeAct']) ) {
-                result.push(item)    
-            } 
+                result.push(item)   
+            }
         });
-        console.log(result)
+        this.setState({
+            ias : result[0]['ias'],
+            ff : result[0]['ff'],
+            trq : result[0]['trq'],
+        })
     }
 
     render () {  
