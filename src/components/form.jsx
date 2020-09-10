@@ -22,7 +22,10 @@ class Form extends Component {
         this.props.calculateIsa(data)
         setTimeout(() => {
             this.props.calculateData(data)
-        }, 1000);
+        }, 250);
+        setTimeout(() => {
+            this.props.calculateMCP(data)
+        }, 500);
     }
 
     render() {

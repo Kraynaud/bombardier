@@ -50,13 +50,13 @@ class App extends Component {
         } else if (this.state.deviationIsa === 37) {
             array = isa37;
         } else {
-            alert("No data available");
+            alert("Data out of indicated charts");
         }
 
         const filter = Object.values(array);
         const result = [];
         filter.forEach((item) => {
-            if ( item['poids'] == parseInt(data['poidsAct']) && item['alt'] == parseInt(data['altitudeAct']) ) {
+            if ( item['poids'] == data['poidsAct'] && item['alt'] == data['altitudeAct'] ) {
                 result.push(item)   
             }
         });
@@ -67,10 +67,43 @@ class App extends Component {
         })
     }
 
+    calculateMCP = (data) => {
+        let tempMcp;
+        let mcpValue;
+        const altitude = parseInt(data['altitudeAct']);
+        const temperature = parseInt(data['tempAct']);
+        const altitudeTarget = parseInt(data['altTarget']);
+        const tempRound = Math.round(temperature/10) * 10;
+        const mcpRecord = [];
+
+        this.state.mcp.forEach((item) => {
+            if ( item['altitude'] === altitude ) {
+                mcpRecord.push(item) 
+            }
+        });
+
+        for (const key in mcpRecord[0]) {
+            if (parseInt(key) === tempRound) {
+                mcpValue = mcpRecord[0][key]
+            }
+        }
+
+        tempMcp = ((altitudeTarget - altitude) / 1000 * -2) + temperature;
+        
+        this.setState({
+            mcpValue,
+            tempMcp
+        })
+    } 
+
     render () {  
         return (
             <div className="container">
-                <Form calculateIsa={this.calculateIsa} calculateData={this.calculateData} />
+                <Form 
+                    calculateIsa={this.calculateIsa} 
+                    calculateData={this.calculateData} 
+                    calculateMCP={this.calculateMCP}
+                />
                 <div className="results">          
                 </div>
             </div>
