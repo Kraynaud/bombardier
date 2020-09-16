@@ -35,7 +35,7 @@ class App extends Component {
         let array;
         if (this.state.deviationIsa <= -16) {
             array = isaM20;
-        } else if (this.state.deviationIsa >= -15 && this.state.deviationIsa <= -6) {
+        } else if (this.state.deviationIsa >= -15 && this.state.deviationIsa <= -4) {
             array = isaM10;
         } else if (this.state.deviationIsa >= -5 && this.state.deviationIsa <= 4) {
             array = isa;
