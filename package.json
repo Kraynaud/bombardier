@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "react": "16.2",
-    "react-dom": "16.2"
+    "react-dom": "16.2",
+    "yarn": "^1.22.5"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",

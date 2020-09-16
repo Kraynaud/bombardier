@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Form from './form';
-import { isaM20, isaM10, isa10, isa, isa20, isa30, isa35, isa37 } from '../../data/isa';
-import mcp from '../../data/mcp';
+import './App.module.css'
+import Form from '../Form/Form';
+import { isaM20, isaM10, isa10, isa, isa20, isa30, isa35, isa37 } from '../../../data/isa';
+import mcp from '../../../data/mcp';
 
 class App extends Component {
     constructor(props) {
@@ -109,13 +110,13 @@ class App extends Component {
 
     render () {  
         return (
-            <div className="container">
+            <div  className="Fullwraper">
                 <Form 
                     calculateIsa={this.calculateIsa} 
                     calculateData={this.calculateData} 
                     calculateMCP={this.calculateMCP}
                 />
-                <div className="results">
+                <div className="OutputContainer">
                     <h2>Your ISA deviation is {this.state.deviationIsa} (%)</h2> 
                     <h2>Your flight data</h2>
                         <ul>

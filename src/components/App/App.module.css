@@ -1,0 +1,12 @@
+.Fullwraper{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000;
+    width: 800px;
+    height: 500px;
+}
+
+
+
+.OutputContainer{
+    background-color: rgb(154, 50, 50) !important;
+}

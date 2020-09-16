@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Form.module.css'
 class Form extends Component {
     constructor(props) {
         super(props);
@@ -30,9 +30,9 @@ class Form extends Component {
 
     render() {
         return (
-            <div className="formulaire">
+            <div className="FormFull">
                 <h2>Données de vol</h2>
-                <form action="submit" onSubmit={this.handleSubmit}>
+                <form action="submit" onSubmit={this.handleSubmit} className="Form">
                     <label htmlFor="name">Température actuelle °C</label>
                     <input value={this.state.tempAct} name="tempAct" onChange={this.handleChange} type="text" placeholder="Température °C" />
                     <label htmlFor="name">Altitude actuelle ft</label>
