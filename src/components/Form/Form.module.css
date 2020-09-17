@@ -1,6 +1,13 @@
 .FormFull{ 
-    background-color: cornflowerblue;
+    background-color: #292F5B;
+    color: #ffffff;
     
+}
+
+.FormFull h2{
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
 }
 
 .Form{
@@ -12,9 +19,13 @@
     font-size: 2.1rem;
     font-weight: 500;
 }
+.Form input{
+    color: #000;
+}
 
 .Form button{
-    background-color: #f5f5f5;
+    background-color: #fff8f8;
+    color: #292F5B;
     border: none;
     cursor: pointer;
     width: 50%;
@@ -24,6 +35,6 @@
 
 }
 .Form button:hover{
-    background-color: darkblue;
-    color: darkgray;
+    background-color: #80AB3A;
+    color: #292F5B;
 }

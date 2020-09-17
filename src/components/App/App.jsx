@@ -117,15 +117,15 @@ class App extends Component {
                     calculateMCP={this.calculateMCP}
                 />
                 <div className="OutputContainer">
-                    <h2>Your ISA deviation is {this.state.deviationIsa} (%)</h2> 
-                    <h2>Your flight data</h2>
+                    <h2>ISA deviation : {this.state.deviationIsa} °C</h2> 
+                    <h2>Flight data:</h2>
                         <ul>
-                            <li>Torque : {this.state.trq} (%)</li>
-                            <li>Indicated Air Speed : {this.state.ias} (Kt)</li>
-                            <li>Fuel Flow : {this.state.ff} (Kg)</li>
+                            <li>Torque : {this.state.trq} %</li>
+                            <li>Indicated Air Speed : {this.state.ias} Kt</li>
+                            <li>Fuel Flow : {this.state.ff} Kg</li>
                         </ul>
-                    <h2>Your Max Continuous Power is {this.state.mcpValue} (%)</h2>
-                    <h2>MCP temperature is {this.state.tempMcp} (°C)</h2>    
+                    <h2>Max Continuous Power (MCP) : {this.state.mcpValue} %</h2>
+                    <h2>MCP temperature : {this.state.tempMcp} °C</h2>    
                 </div>
             </div>
         )

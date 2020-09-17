@@ -1,6 +1,6 @@
 .Fullwraper{
-    background-color: rgb(255, 255, 255);
-    border: 1px solid #000;
+    background-color: #292F5B;
+    
     width: 800px;
     height: 500px;
 }
@@ -8,5 +8,6 @@
 
 
 .OutputContainer{
-    background-color: rgb(154, 50, 50) !important;
+    color: #fff;
+    background-color: #292F5B;
 }
