@@ -54,11 +54,43 @@ class App extends Component {
             array = null;
         }
 
+        let roundAlt;
+        if ( data['altitudeAct']>=0 && data['altitudeAct']<1000 ) {
+            roundAlt = "S.L.";
+        } else if ( data['altitudeAct']>=1000 && data['altitudeAct']<3000 ) {
+            roundAlt = 2000;
+        } else if ( data['altitudeAct']>=3000 && data['altitudeAct']<5000 ) {
+            roundAlt = 4000;
+        } else if ( data['altitudeAct']>=5000 && data['altitudeAct']<7000 ) {
+            roundAlt = 6000;
+        } else if ( data['altitudeAct']>=7000 && data['altitudeAct']<9000 ) {
+            roundAlt = 8000;
+        } else if ( data['altitudeAct']>=9000 && data['altitudeAct']<11000 ) {
+            roundAlt = 10000;
+        } else if ( data['altitudeAct']>=11000 && data['altitudeAct']<13000 ) {
+            roundAlt = 12000;
+        } else if ( data['altitudeAct']>=13000 && data['altitudeAct']<15000 ) {
+            roundAlt = 14000;
+        } else if ( data['altitudeAct']>=15000 && data['altitudeAct']<17000 ) {
+            roundAlt = 16000;
+        } else if ( data['altitudeAct']>=17000 && data['altitudeAct']<19000 ) {
+            roundAlt = 18000;
+        } else if ( data['altitudeAct']>=19000 && data['altitudeAct']<21000 ) {
+            roundAlt = 20000;
+        } else if ( data['altitudeAct']>=21000 && data['altitudeAct']<23000 ) {
+            roundAlt = 22000;
+        } else if ( data['altitudeAct']>=23000 && data['altitudeAct']<24500 ) {
+            roundAlt = 24000;
+        } else {
+            roundAlt = 25000;
+        }
+
         if (array !== null) {
             const filter = Object.values(array);
             const result = [];
+            const roundWgt = Math.floor(((parseInt(data['poidsAct']) + 500) / 1000)) * 1000;
             filter.forEach((item) => {
-                if ( item['poids'] == data['poidsAct'] && item['alt'] == data['altitudeAct'] ) {
+                if ( item['poids'] == roundWgt && item['alt'] == roundAlt ) {
                     result.push(item)   
                 }
             });
